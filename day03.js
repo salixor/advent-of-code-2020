@@ -1,10 +1,11 @@
-const entry = require('./entries/day03.js');
+const fs = require('node:fs');
 
-const OPEN_SQUARE = '.';
+const entry = fs.readFileSync('./entries/day03.txt', { encoding: 'utf-8' });
+
 const TREE = '#';
 const START_POSITION = { x: 1, y: 1 };
 
-const formattedEntry = entry.default.split('\n');
+const formattedEntry = entry.split('\n');
 const MAX_COL_LENGTH = formattedEntry[0].length;
 
 const computeSlope = (startPosition, pattern) => {
